@@ -38,6 +38,7 @@ openeuclide
 pyroom
 qt-devel
 quadrapassel
+quearcode
 remmina
 scribus
 shotwell

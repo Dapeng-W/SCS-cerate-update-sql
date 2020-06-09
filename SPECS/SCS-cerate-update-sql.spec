@@ -59,5 +59,8 @@ cp -rf %{build_day}.sql %{buildroot}/opt/scs-app/
 
 
 %changelog
+* Wed Jun 03 2020 Dapeng <wukunpeng@kylinos.com.cn> - 1.0-1.20200603.02
+- Update UPDATELIST_mips64el.txt for LS-D Build62.1.
+
 * Wed May 20 2020 Dapeng <wukunpeng.wu@cs2c.com.cn> - 1.0-1.20200520.01
 - Init.

@@ -21,8 +21,8 @@ fi
 
 # UPDATELIST_FILE 是 软件中心服务端(SCS) 需要进行升级的应用软件包名的列表文件
 # 	如何生成 UPDATELIST_FILE (TODO):
-# 		被配置为连接服务端 update.cs2c.com.cn 的 软件中心客户端(SCC) 成功运行起来之后, 本地存在 sqlite 文件 : /opt/softwarecenter/db/software.db
-# 		1, 运行shell命令 `sqlite3 /opt/softwarecenter/db/software.db -line 'select s_rpm from softwares;' |awk '{print $3}' > all-origin-app-list.txt` 以导出 software.db 中带版本号的软件列表到临时文件 all-origin-app-list.txt 中, 并通过执行 `sed -i '/^$/d' all-origin-app-list.txt` 来删除其中的空行, 再通过执行 `sed -i ':label;N;s/\n/ /;b label' all-origin-app-list.txt` 将其中的换行附替换成空格;
+# 		被配置为连接服务端 update.cs2c.com.cn 的 软件中心客户端(SCC) 成功运行起来之后, 本地存在 sqlite 文件 : /opt/softwarecenter/db/server_software.db
+# 		1, 运行shell命令 `sqlite3 /opt/softwarecenter/db/server_software.db -line 'select s_rpm from softwares;' |awk '{print $3}' > all-origin-app-list.txt` 以导出 server_software.db 中带版本号的软件列表到临时文件 all-origin-app-list.txt 中, 并通过执行 `sed -i '/^$/d' all-origin-app-list.txt` 来删除其中的空行, 再通过执行 `sed -i ':label;N;s/\n/ /;b label' all-origin-app-list.txt` 将其中的换行附替换成空格;
 # 		2, 将 SCC 所有的 yum repo 禁用, 启用 baseurl 指向 koji 仓库的 yum repo, 之后 shell 运行 `yum clean all`;
 # 		3, shell 运行 yum install `cat all-origin-app-list.txt` --installroot=<tmprootfsdir> , 其中 <tmprootfsdir> 是一个临时创建的空目录, 该命令运行时不需要真的确认安装，会有提示说部分 PACKAGES "没有可用软件包",  而这些些 yum 找不到的包，一部分是因为第三方软件不在 koji 仓库里, 另一部分是因为版本不匹配 koji 仓库里存在的最新版本. 而这些因版本不匹配而找不到的包正是我们需要对其进行更新的,  最后 手动(FIXME) 将不匹配的 PACKAGES 的不带版本号的包名写入 UPDATELIST_FILE 文件中.
 # 	UPDATELIST_FILE 文件名称 :
