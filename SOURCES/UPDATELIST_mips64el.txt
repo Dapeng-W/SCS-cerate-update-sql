@@ -27,6 +27,8 @@ homebank
 iagno
 joe
 mate-calc
+mate-utils
+mate-utils-devel
 mate-dictionary
 mate-disk-usage-analyzer
 mate-screenshot
@@ -37,9 +39,14 @@ mate-terminal
 openeuclide
 pyroom
 qt-devel
+qt-config
+qt-odbc
 quadrapassel
 quearcode
 remmina
+remmina-plugins-gnome
+remmina-plugins-rdp
+remmina-plugins-vnc
 scribus
 shotwell
 simple-scan
