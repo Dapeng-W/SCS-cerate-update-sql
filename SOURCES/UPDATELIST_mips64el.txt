@@ -16,6 +16,7 @@ galculator
 gimp
 glabels
 glade
+glade-devel
 gnome-chess
 gnome-mines
 gnome-sound-recorder
@@ -41,6 +42,10 @@ pyroom
 qt-devel
 qt-config
 qt-odbc
+qt-doc
+qt-examples
+qt-assistant
+qt-demos
 quadrapassel
 quearcode
 remmina
